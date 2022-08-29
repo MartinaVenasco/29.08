@@ -1,17 +1,14 @@
 import "./index.css";
 import { useState } from "react";
 
-const Form = ({ list, setList })=> {
+const Form = ({ list, setList }) => {
   const [task, setTask] = useState("");
   const [todoDate, setTodoDate] = useState("");
 
   const onFormSubmit = (e) => {
     e.preventDefault();
 
-    setList([
-      ...list,
-      { id: list.length + 1, text: task, date: todoDate },
-    ]);
+    setList([...list, { id: list.length + 1, text: task, date: todoDate }]);
     setTask("");
     setTodoDate("");
   };
@@ -30,9 +27,11 @@ const Form = ({ list, setList })=> {
         value={todoDate}
         onChange={(e) => setTodoDate(e.target.value)}
       />
-      <button type="submit">Aggiungi</button>
+      <button type="submit" className="form__button">
+        Aggiungi
+      </button>
     </form>
   );
-}
+};
 
 export default Form;

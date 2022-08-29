@@ -1,20 +1,21 @@
 import "./index.css";
 import Todotask from "../Todo/Todotask";
 
-const ToDoList = ({ list }) => {
+const ToDoList = ({ list}) => {
+
   return (
-    <div >
+    <div>
       <div className="TodoList">
         {list.length ? (
-          list.map((todo) => <Todotask todo={todo} key={todo.id} />)
+          list.map((todo, i) => (
+            <Todotask id ={i} todo={todo} key={todo.id} />
+          ))
         ) : (
           <p>...loading</p>
-          
         )}
-        
       </div>
     </div>
   );
 };
 
-export default (ToDoList);
+export default ToDoList;
