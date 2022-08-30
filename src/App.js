@@ -13,14 +13,19 @@ function App() {
       date: "2022-09-05",
     },
   ]);
-
+  const deleteItemHandler = (itemId) => {
+    setList((prevList) => {
+      const updatedList = prevList.filter((item) => item.id !== itemId);
+      return updatedList;
+    });
+  };
  
   return (
     <div className="App">
       <section className="form-todo">
         <h1> MY TODO LIST</h1>
         <Form list={list} setList={setList} />
-        <ToDoList list={list}/>
+        <ToDoList list={list} onRemoveTask={deleteItemHandler}/>
       </section>
     </div>
   );
